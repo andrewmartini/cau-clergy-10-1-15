@@ -2,22 +2,23 @@
 <html>
     <head>
         <title>
-            CAU Clergy Map | DRAFT | update:10/xx/15
+
+            NYC Multilayer Web Map Viz | for DEMO purposes only
+
         </title>
- 
+
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
- 
-        <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+
+     
 
        <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,900' rel='stylesheet' type='text/css'> -->
             <!-- <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7/leaflet.css"/> -->
             <!--<link rel="stylesheet" href="../cau-clergy/css/leaflet.groupedlayercontrol.css" /> -->
 
-        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css" /> 
-        <link rel="stylesheet" href="css/styledLayerControl.css" /> 
-        <link rel="stylesheet" href="css/instructorStyles.css" /> 
-        <link rel="stylesheet" href="css/legendStyles.css" />        
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css" />
+        <link rel="stylesheet" href="css/styledLayerControl.css" />
+        <link rel="stylesheet" href="css/instructorStyles.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- <script src="//cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script> -->
@@ -32,7 +33,7 @@
             }
 
 /* style and position the legend  */
-    #my-legend {  
+    #my-legend {
         position: absolute;
         width: auto;
         padding: 10px;
@@ -42,12 +43,12 @@
       }
 
 
-      .my-legend { 
-        background: rgba(255,255,255,1); 
-        background: transparent url(css/images/bgnoise_lg.jpg) repeat top left; 
+      .my-legend {
+        background: rgba(255,255,255,1);
+        background: transparent url(css/images/bgnoise_lg.jpg) repeat top left;
         border-radius: 5px;
         border: 0;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);       
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
         font-family: 'Ubuntu-Regular', Arial, sans-serif;
         font-size: 18px;
         text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
@@ -57,7 +58,7 @@
         overflow-x: hidden;
         overflow-y: scroll;
       }
-            
+
       .my-legend .legend-title {
         font-family: 'Ubuntu-Regular', Arial, sans-serif;
         /*margin-bottom: 5px;*/
@@ -67,19 +68,19 @@
         }
 
       .my-legend .layer-title {
-       font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;    
+       font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
         text-align: left;
         padding-bottom: 1px;
         padding-top: 9px;
         font-weight: bold;
         font-size: 105%;
-        }  
+        }
       .my-legend .legend-scale ul {
         margin: 0;
         padding: 0;
-        float: left; 
+        float: left;
         list-style: none;
-        } 
+        }
       .my-legend .legend-scale ul li {  /* color span and text block area - the li*/
         display: block;
         padding-bottom: 5px;
@@ -118,7 +119,7 @@
         }
       .my-legend a {
         color: #2b8cbe;
-        } 
+        }
 
 
         /* vertical legend style for DOE data*/
@@ -148,11 +149,10 @@
               border: 0px solid #fff;
               }
 
-
 /* change the appearance of the leaflet zoom control, copied from http://wcfcourier.com/app/special/fatalcrashes/css/styles.css */
       .leaflet-control-zoom a {
           background-color: #C5E1EB;
-          color: #000;  
+          color: #000;
           text-decoration: none;
       }
 
@@ -176,7 +176,7 @@
       }
 
 
-      </style>  
+      </style>
     </head>
 
     <body>
@@ -188,14 +188,14 @@
       <div class="icon-sort-up"></div> <i class="fa fa-chevron-up"></i>
       <div class="hide_show_instructor_text">instructions</div>
     </div>
-    <div class="hide_instructor" style="display: none;"> 
+    <div class="hide_instructor" style="display: none;">
       <div class="icon-sort-down"></div> <i class="fa fa-chevron-down"></i>
-      <div class="hide_show_instructor_text">Hide</div> 
+      <div class="hide_show_instructor_text">Hide</div>
     </div>
-</div>
+  </div>
 
     <div id="instructor" class="box-shadow">
-      <h1>Sample Web Map</h1>
+      <h1>CAU Outreach Map</h1>
 
       <div id="instructor-text-intro">
         <p>Layers are drawn as you select them, newest on top of oldest. To change the order, simply toggle a layer off and then on again to make it appear on top of others.</p>
@@ -203,25 +203,16 @@
    </div>
 
 
-<div id="hide_show_legend">
-    <div class="show_legend" >
-      <div class="icon-sort-up"></div> <i class="fa fa-chevron-up"></i>
-      <div class="hide_show_legend_text">show legend</div>
-    </div>
-    <div class="hide_legend" style="display: none;"> 
-      <div class="icon-sort-down"></div> <i class="fa fa-chevron-down"></i>
-      <div class="hide_show_legend_text">Hide</div> 
-    </div>
+<!--   MAPBOX-style LEGEND  - framwork from SCHLANG map -->
 
-
-
+<div id='my-legend' class='my-legend'>
 
 <!-- <div class='legend-title'></div>
 <hr style="background:#000; border:0; height:2px" /> -->
 <div class='layer-title'>Race, Ethnicity & Foreign Born Layers</div>
 <div class='legend-scale'>
   <ul class='legend-labels'>
-    <li><span style='background:#FFFFB2;'></span><span class="rotate-text">10-19%</span></li>  
+    <li><span style='background:#FFFFB2;'></span><span class="rotate-text">10-19%</span></li>
     <li><span style='background:#FED976;'></span><span class="rotate-text">20-34%</span></li>
     <li><span style='background:#FEB24C;'></span><span class="rotate-text">35-49%</span></li>
     <li><span style='background:#FD8D3C;'></span><span class="rotate-text">50-64%</span></li>
@@ -231,7 +222,7 @@
   </ul>
 
 </div>
-<div class='legend-source'><!--Source: 2014(?) <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a>--></div>
+<div class='legend-source'>Source: 2012 <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a></div>
 
 <hr style="background:#c0c0c0; border:0; height:2px" />
 
@@ -247,7 +238,7 @@
       <li><span style='background:#1a9850;'></span><span class="rotate-text">$244,000</li>
     </ul>
   </div>
-     <div class='legend-source'>Source: 2014 ACS? </div> 
+<div class='legend-source'>Source: 2012 <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a></div>
 
 <hr style="background:#c0c0c0; border:0; height:2px" />
 
@@ -255,7 +246,7 @@
   <div class='legend-scale'>
     <ul class='legend-labels'>
       <li><span style='background:#0080ff;'></span><span class="rotate-text"> 22-25% </li>
-      <li><span style='background:#40a0ff;'></span><span class="rotate-text"> 26-31% </li>      
+     <li><span style='background:#40a0ff;'></span><span class="rotate-text"> 26-31% </li>
       <li><span style='background:#7fbfff;'></span><span class="rotate-text"> 31-35% </li>
       <li><span style='background:#fff2cc;'></span><span class="rotate-text"> 36-40% </li>
       <li><span style='background:#ffa6a6;'></span><span class="rotate-text"> 40-44% </li>
@@ -263,10 +254,10 @@
       <li><span style='background:#ff4d4d;'></span><span class="rotate-text"> 50+ % </li>
     </ul>
   </div>
-     <div class='legend-source'>Source: ?? </div> 
+     
 
 
-</div> 
+  </div>
 <!-- load infowindow template -->
 <script type="infowindow/html" id="infowindow_template">
       <span> custom </span>
@@ -276,7 +267,7 @@
            <div class="cartodb-popup-content">
            <h4 style="position:absolute; top:12px; left:19px; right:21px; display:block; width:auto; padding:8px; text-align:center; color:white; background:rgba(0,0,0,0.7)"> {{content.data.name}}</h4>
              /* content.data contains the field info */
-            
+
            </div>
          </div>
          <div class="cartodb-popup-tip-container"></div>
@@ -287,12 +278,12 @@
         <script src="src/styledLayerControl.js"></script>
         <!-- <script src="../cau-clergy/src/leaflet.groupedlayercontrol.js"></script> -->
 
- 
+
         <!--[if lte IE 8]>
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
         <![endif]-->
- 
- 
+
+
  <script>
 // Toggle for show, hide instructions
 // Only visible on desktop
@@ -303,43 +294,19 @@ $('#hide_show_instructor').click(function() {
     $('.hide_instructor').hide();
     $('.show_instructor').show();
     $('#instructor').slideUp();
-    $('#hide_show_instructor').addClass('box-shadow');
+    $('#hide_show_instructor').removeClass('box-shadow');
     $('.hide_show_instructor').show();
     isHideButton = false;
   } else {
     $('.show_instructor').hide();
     $('.hide_instructor').show();
     $('#instructor').slideDown();
-    $('#hide_show_instructor').removeClass('box-shadow');
+    $('#hide_show_instructor').addClass('box-shadow');
     $('.hide_show_instructor').show();
     isHideButton = true;
   }
 });
-</script> 
-
- <script>
-// Toggle for show, hide legend
-// Only visible on desktop
-isHideButton = false;
-$('#hide_show_legend').click(function() {
-  // console.log(isHideButton);
-  if (isHideButton === true) {
-    $('.hide_legend').hide();
-    $('.show_legend').show();
-    $('#legend').slideUp();
-    $('#hide_show_legend').addClass('box-shadow');
-    $('.hide_show_legend').show();
-    isHideButton = false;
-  } else {
-    $('.show_legend').hide();
-    $('.hide_legend').show();
-    $('#legend').slideDown();
-    $('#hide_show_legend').removeClass('box-shadow');
-    $('.hide_show_legend').show();
-    isHideButton = true;
-  }
-});
-</script> 
+</script>
 
         <script type="text/javascript">
             window.onload = function () {
@@ -376,12 +343,12 @@ $('#hide_show_legend').click(function() {
                     zoomControl: false,   // remove default zoomControl position to create a custom one
                     zoom: 11,
                     maxZoom: 16,
-                    minZoom: 10, 
-                    layers:[light_nolabels]    // initial basemap 
+                    minZoom: 10,
+                    layers:[light_nolabels]    // initial basemap
                     //scrollWheelZoom: false   // to keep from zooming accidentally
               });
 
-              map_object.addControl( L.control.zoom({position: 'topright'}) );      //add custom zoom controller and position         
+              map_object.addControl( L.control.zoom({position: 'topright'}) );      //add custom zoom controller and position
 
 
 // FROM: javisantana’s block #8313604 -- January 8, 2014 -- http://bl.ocks.org/javisantana/8313604
@@ -449,20 +416,14 @@ var labels_overlay = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_la
     var l_labels_overlay = new L.LayerGroup();
     labels_overlay.addTo(l_labels_overlay).setZIndex(100);  // high Z - to keep on top of all other layers
 
-var Stamen_TonerLabels = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png', {
-  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  subdomains: 'abcd',
-  minZoom: 0,
-  maxZoom: 20,
-  ext: 'png'
-});
+var Stamen_TonerLabels = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png', {  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>', subdomains: 'abcd', minZoom: 0,  maxZoom: 20,  ext: 'png'});
 
 var neighborhoods = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
                     type: 'cartodb',
                     sublayers: [{
                       sql: "SELECT * FROM neighborhoods",
-                      cartocss: "#layer { polygon-fill: #000000; polygon-opacity: 0; ::case {line-color: #FFFFFF; line-width: 3; line-opacity: 1;}  ::fill {line-color: #928d8d; line-width: 2; line-opacity: 1; }}", 
+                      cartocss: "#layer { polygon-fill: #000000; polygon-opacity: 0; ::case {line-color: #FFFFFF; line-width: 3; line-opacity: 1;}  ::fill {line-color: #928d8d; line-width: 2; line-opacity: 1; }}",
                       interactivity: "cartodb_id" }]
                     });
     var l_neighborhoods = new L.LayerGroup();
@@ -489,7 +450,7 @@ var nycc = cartodb.createLayer(map_object, {
                       interactivity: "cartodb_id"}]
                   });
       var l_nycc = new L.LayerGroup();
-      nycc.addTo(l_nycc);  
+      nycc.addTo(l_nycc);
 
 var nycd = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
@@ -500,8 +461,7 @@ var nycd = cartodb.createLayer(map_object, {
                       interactivity: "cartodb_id"}]
                   });
       var l_nycd = new L.LayerGroup();
-      nycd.addTo(l_nycd); 
-
+      nycd.addTo(l_nycd);
 
 var nyss = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
@@ -512,8 +472,7 @@ var nyss = cartodb.createLayer(map_object, {
                       interactivity: "cartodb_id"}]
                   });
       var l_nyss = new L.LayerGroup();
-      nyss.addTo(l_nyss); 
-
+      nyss.addTo(l_nyss);
 
 var nyad = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
@@ -524,7 +483,7 @@ var nyad = cartodb.createLayer(map_object, {
                       interactivity: "cartodb_id"}]
                   });
       var l_nyad = new L.LayerGroup();
-      nyad.addTo(l_nyad); 
+      nyad.addTo(l_nyad);
 
 var nycg = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
@@ -535,7 +494,7 @@ var nycg = cartodb.createLayer(map_object, {
                       interactivity: "cartodb_id"}]
                   });
       var l_nycg = new L.LayerGroup();
-      nycg.addTo(l_nycg); 
+      nycg.addTo(l_nycg);
 
 var nybb = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
@@ -546,8 +505,8 @@ var nybb = cartodb.createLayer(map_object, {
                         interactivity: "cartodb_id"}]
                         });
       var l_nybb = new L.LayerGroup();
-      nybb.addTo(l_nybb); 
-                          
+      nybb.addTo(l_nybb);
+
  var zipcode = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
                     type: 'cartodb',
@@ -557,11 +516,11 @@ var nybb = cartodb.createLayer(map_object, {
                         interactivity: "cartodb_id"}]
                         });
       var l_zipcode = new L.LayerGroup();
-      zipcode.addTo(l_zipcode);                            
+      zipcode.addTo(l_zipcode);
 
 var precincts = cartodb.createLayer(map_object, 'https://ashron24.cartodb.com/api/v2/viz/2fe813da-3d35-11e5-8497-0e0c41326911/viz.json');
       var l_precincts = new L.LayerGroup();
-      precincts.addTo(l_precincts); 
+      precincts.addTo(l_precincts);
 
 var uhf_health = cartodb.createLayer(map_object, {
                     user_name: 'andrewmartini',
@@ -578,7 +537,6 @@ var uhf_health = cartodb.createLayer(map_object, {
          });
 
 
-
 // **********************************************************************************
 //  Religious and CBO LAYERS
 
@@ -586,39 +544,42 @@ var cbo = cartodb.createLayer(map_object, 'https://nycdoitt.cartodb.com/u/asherr
     var l_cbo = new L.LayerGroup();
     cbo.addTo(l_cbo);
 
-var schools = cartodb.createLayer(map_object, 'https://nycdoitt.cartodb.com/u/asherross/api/v2/viz/4d34b840-687c-11e5-b7d9-0e674067d321/viz.json');
+var schools = cartodb.createLayer(map_object, 'https://nycdoitt.cartodb.com/u/asherross/api/v2/viz/400b696a-6d0a-11e5-9e4e-0e787de82d45/viz.json');
     var l_schools = new L.LayerGroup();
     schools.addTo(l_schools);
 
 var health = cartodb.createLayer(map_object, {  //hospitals and clinics
-                    user_name: 'ashron24',
+                    user_name: 'ashron2224',
                     type: 'cartodb',
                     sublayers: [{
-                      sql: "SELECT cartodb_id, the_geom_webmercator, name, label FROM scrieloc2_1 ",
-                      cartocss: "#layer [label='Health'][zoom >= 10] {marker-width: 6; marker-file: url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/ashron24/assets/20150707191228Hospital_Sign_Silhouette_32.png'); marker-line-color: #FFFFFF; marker-placement: point; marker-type: ellipse;  marker-allow-overlap: true; }  #layer  [label='Health'] [zoom >= 11] { marker-width: 9; } #layer [label='Health'][zoom >= 12]{marker-width: 12; } #layer  [label='Health'] [zoom >= 13]{   marker-width: 18; } #layer  [label='Health'] [zoom >= 15]{ marker-width: 24; }",
+                      sql: "SELECT cartodb_id, the_geom_webmercator, facname, facaddress, facility_t, group_type, subgroup_t, capacity, capacity_t, agency_ope, agency_ove, factype FROM fac15 ",
+                      cartocss: "#layer [factype>3100][factype<3200][zoom >= 10] {marker-width: 6; marker-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/ashron24/assets/20150707191228Hospital_Sign_Silhouette_32.png); marker-line-color: #FFFFFF; marker-placement: point; marker-type: ellipse;  marker-allow-overlap: true; }  #layer  [factype>3100][factype<3200][zoom >= 11] { marker-width: 9; } #layer [factype>3100][factype<3200][zoom >= 12]{marker-width: 12; } #layer  [factype>3100][factype<3200] [zoom >= 13]{   marker-width: 18; } #layer  [factype>3100][factype<3200] [zoom >= 15]{ marker-width: 24; }",
                       interactivity: "cartodb_id"}]
                   });
     var l_health = new L.LayerGroup();
     health.addTo(l_health)
           .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['name', 'cartodb_id'])
-         }); 
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['facname', 'facaddress', 'facility_t', 'group_type', 'subgroup_t', 'capacity', 'capacity_t', 'agency_ope', 'agency_ove'])
+   /*      }).on('error', function() {
+      console.log("some error occurred" + err);//log the error
+       alert("some error occurred: " + err);*/
+         });
 
-var library = cartodb.createLayer(map_object, {  
-                    user_name: 'ashron24',
+var library = cartodb.createLayer(map_object, {
+                    user_name: 'ashron2224',
                     type: 'cartodb',
                     sublayers: [{
-                      sql: "SELECT cartodb_id, the_geom_webmercator, name, label FROM scrieloc2_1 ",
-                      cartocss: "#layer [label='Library'][zoom >= 10] {marker-width: 6;marker-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/ashron24/assets/20150707192220Open_book_32.png); marker-line-color: #FFFFFF; marker-placement: point; marker-type: ellipse;  marker-allow-overlap: true; }  #layer  [label='Library'] [zoom >= 11] { marker-width: 9; } #layer [label='Library'][zoom >= 12]{marker-width: 12; } #layer  [label='Library'] [zoom >= 13]{   marker-width: 18; } #layer  [label='Library'] [zoom >= 15]{ marker-width: 24; }",
+                      sql: "SELECT cartodb_id, the_geom_webmercator, facname, facaddress, facility_t, group_type, subgroup_t, capacity, capacity_t, agency_ope, agency_ove, factype FROM fac15 ",
+                      cartocss: "#layer [factype>1400][factype<1403][zoom >= 10] {marker-width: 6;marker-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/ashron24/assets/20150707192220Open_book_32.png); marker-line-color: #FFFFFF; marker-placement: point; marker-type: ellipse;  marker-allow-overlap: true; }  #layer  [factype>1400][factype<1403][zoom >= 11] { marker-width: 9; } #layer [factype>1400][factype<1403][zoom >= 12]{marker-width: 12; } #layer   [factype>1400][factype<1403][zoom >= 13]{   marker-width: 18; } #layer   [factype>1400][factype<1403][zoom >= 15]{ marker-width: 24; }",
                       interactivity: "cartodb_id"}]
                   });
     var l_library = new L.LayerGroup();
     library.addTo(l_library)
           .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['name',  'cartodb_id'])
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['facname', 'facaddress', 'facility_t', 'group_type', 'subgroup_t', 'capacity', 'capacity_t', 'agency_ope', 'agency_ove'])
          });
 
-var fac = cartodb.createLayer(map_object, {  
+var fac = cartodb.createLayer(map_object, {
                     user_name: 'ashron24',
                     type: 'cartodb',
                     sublayers: [{
@@ -632,6 +593,7 @@ var fac = cartodb.createLayer(map_object, {
           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), [ 'name', 'cartodb_id'])
          });
 
+
 var nycha = cartodb.createLayer(map_object, {
             user_name: 'andrewmartini',
             type: 'cartodb',
@@ -644,206 +606,240 @@ var nycha = cartodb.createLayer(map_object, {
          nycha.addTo(l_nycha)
            .on('done', function(layer) {
           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), [ 'developmen', 'tot_pop11', 'cartodb_id'])
-         }); 
+         });
 
-  var subways = cartodb.createLayer(map_object, 'https://andrewmartini.cartodb.com/api/v2/viz/77a3e3a4-2aaf-11e5-8077-0e9d821ea90d/viz.json'); 
+  var subways = cartodb.createLayer(map_object, 'https://andrewmartini.cartodb.com/api/v2/viz/77a3e3a4-2aaf-11e5-8077-0e9d821ea90d/viz.json');
           var l_subways = new L.LayerGroup();
           subways.addTo(l_subways);
 
-  var dpr_parks = cartodb.createLayer(map_object, 'https://andrewmartini.cartodb.com/api/v2/viz/14265a74-4129-11e5-a71a-0e4fddd5de28/viz.json'); 
+  var dpr_parks = cartodb.createLayer(map_object, 'https://andrewmartini.cartodb.com/api/v2/viz/14265a74-4129-11e5-a71a-0e4fddd5de28/viz.json');
           var l_dpr_parks = new L.LayerGroup();
-          dpr_parks.addTo(l_dpr_parks); 
+          dpr_parks.addTo(l_dpr_parks);
 
 
-var percent_nhblack_choro = cartodb.createLayer(map_object, {   
+/* var none = cartodb.createLayer(map_object, {    // dummy placeholder for "none" value for exclusive groups to 'deselect'
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
-                        sql: "SELECT cartodb_id, totalpop, nhblack, the_geom, the_geom_webmercator, (nhblack/totalpop)*100 as percent_black FROM tracttemp where totalpop > 100",
-                        cartocss: "#tracttemp{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #tracttemp [ percent_black >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #tracttemp [ percent_black >= 20] {    polygon-fill: #FED976; } #tracttemp [ percent_black >= 35] {    polygon-fill: #FEB24C; } #tracttemp [ percent_black >= 50] {    polygon-fill: #FD8D3C; } #tracttemp [ percent_black >= 65] {    polygon-fill: #FC4E2A; } #tracttemp [ percent_black >= 80] {    polygon-fill: #E31A1C; } #tracttemp [ percent_black >= 90] {    polygon-fill: #B10026; }",
+                        sql: "SELECT cartodb_id, the_geom_webmercator FROM nybb",
+                        cartocss: "#layer{   polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; }",
                       interactivity: "cartodb_id"}]
                     });
-    var l_percent_nhblack_choro = new L.LayerGroup();
-    percent_nhblack_choro.addTo(l_percent_nhblack_choro)
+    var l_none = new L.LayerGroup();
+    none.addTo(l_none); */
+
+var percent_nhblack_choro = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT cartodb_id, totalpop, nhblack, the_geom, the_geom_webmercator, (nhblack/totalpop)*100 AS percent_black_12 FROM tract12 WHERE totalpop > 100",
+                        cartocss: "#layer{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #layer [ percent_black_12 >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ percent_black_12 >= 20] {    polygon-fill: #FED976; } #layer [ percent_black_12 >= 35] {    polygon-fill: #FEB24C; } #layer [ percent_black_12 >= 50] {    polygon-fill: #FD8D3C; } #layer [ percent_black_12 >= 65] {    polygon-fill: #FC4E2A; } #layer [ percent_black_12 >= 80] {    polygon-fill: #E31A1C; } #layer [ percent_black_12 >= 90] {    polygon-fill: #B10026; }",
+                      interactivity: "cartodb_id"}]
+                    });
+    var l_percent_nhblack_choro_12 = new L.LayerGroup();
+    percent_nhblack_choro.addTo(l_percent_nhblack_choro_12)
         .on('done', function(layer) {
-        cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_black', 'nhblack', 'totalpop', 'cartodb_id'])
-        });  
-
-
-var percent_nhwhite_choro = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT cartodb_id, totalpop, nhwhite, the_geom, the_geom_webmercator, (nhwhite/totalpop)*100 as percent_white FROM tracttemp where totalpop > 100",
-                        cartocss: "#tracttemp{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #tracttemp [ percent_white >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #tracttemp [ percent_white >= 20] {    polygon-fill: #FED976; } #tracttemp [ percent_white >= 35] {    polygon-fill: #FEB24C; } #tracttemp [ percent_white >= 50] {    polygon-fill: #FD8D3C; } #tracttemp [ percent_white >= 65] {    polygon-fill: #FC4E2A; } #tracttemp [ percent_white >= 80] {    polygon-fill: #E31A1C; } #tracttemp [ percent_white >= 90] {    polygon-fill: #B10026; }",
-                      interactivity: "cartodb_id"}]
-                    });
-    var l_percent_nhwhite_choro = new L.LayerGroup();
-    percent_nhwhite_choro.addTo(l_percent_nhwhite_choro)
-          .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_white', 'nhwhite', 'totalpop','cartodb_id'])
-         }); 
-
-var percent_foreignborn_choro = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT totalpop, foreignbor, cartodb_id, the_geom, the_geom_webmercator, (foreignbor/totalpop)*100 AS percent_fb FROM tracttemp where totalpop > 100",
-                        cartocss: "#tracttemp{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #tracttemp [ percent_fb >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #tracttemp [ percent_fb >= 20] {    polygon-fill: #FED976; } #tracttemp [ percent_fb >= 35] {    polygon-fill: #FEB24C; } #tracttemp [ percent_fb >= 50] {    polygon-fill: #FD8D3C; } #tracttemp [ percent_fb >= 65] {    polygon-fill: #FC4E2A; } #tracttemp [ percent_fb >= 80] {    polygon-fill: #E31A1C; } #tracttemp [ percent_fb >= 90] {    polygon-fill: #B10026; }",
-                      interactivity: "cartodb_id"}]
-                    });
-    var l_percent_foreignborn_choro = new L.LayerGroup();
-    percent_foreignborn_choro.addTo(l_percent_foreignborn_choro)
-          .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_fb', 'foreignbor', 'totalpop', 'cartodb_id'])
-         }); 
-
-var percent_nhasian_choro = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT totalpop, nhasian, cartodb_id, the_geom_webmercator, (nhasian/totalpop)*100 as percent_asian FROM tracttemp where totalpop > 100",
-                        cartocss: "#tracttemp{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #tracttemp [ percent_asian >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #tracttemp [ percent_asian >= 20] {    polygon-fill: #FED976; } #tracttemp [ percent_asian >= 35] {    polygon-fill: #FEB24C; } #tracttemp [ percent_asian >= 50] {    polygon-fill: #FD8D3C; } #tracttemp [ percent_asian >= 65] {    polygon-fill: #FC4E2A; } #tracttemp [ percent_asian >= 80] {    polygon-fill: #E31A1C; } #tracttemp [ percent_asian >= 90] {    polygon-fill: #B10026; }",
-                      interactivity: "cartodb_id"}]
-                    });
-    var l_percent_nhasian_choro = new L.LayerGroup();
-    percent_nhasian_choro.addTo(l_percent_nhasian_choro)
-          .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_asian', 'nhasian' ,'totalpop', 'cartodb_id'])
-         }); 
-
-var percent_hispanic_choro = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT cartodb_id, hispanic, totalpop, the_geom_webmercator, (hispanic/totalpop)*100 AS percent_hispanic FROM tracttemp where totalpop > 100",
-                        cartocss: "#tracttemp{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #tracttemp [ percent_hispanic >= 10] {    polygon-fill: #FFFfb2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #tracttemp [ percent_hispanic >= 20] {    polygon-fill: #FED976; } #tracttemp [ percent_hispanic >= 35] {    polygon-fill: #FEB24C; } #tracttemp [ percent_hispanic >= 50] {    polygon-fill: #FD8D3C; } #tracttemp [ percent_hispanic >= 65] {    polygon-fill: #FC4E2A; } #tracttemp [ percent_hispanic >= 80] {    polygon-fill: #E31A1C; } #tracttemp [ percent_hispanic >= 90] {    polygon-fill: #B10026; }",
-                      interactivity: "cartodb_id"}]
-                    });
-    var l_percent_hispanic_choro = new L.LayerGroup();
-    percent_hispanic_choro.addTo(l_percent_hispanic_choro)
-          .on('done', function(layer) {
-           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_hispanic','hispanic', 'totalpop', 'cartodb_id'])  
+        cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_black_12', 'nhblack', 'totalpop', 'cartodb_id'])
         });
 
-var median_inc_to_rent = cartodb.createLayer(map_object, {   
+
+var percent_nhwhite_choro = cartodb.createLayer(map_object, {
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
-                        sql: "SELECT cartodb_id, medrenttoh, medianhhin, the_geom_webmercator FROM tracttemp WHERE Totalpop > 250",
-                        cartocss: "#tracttemp{polygon-fill: #0080ff;polygon-opacity: 0.8;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#tracttemp [ medrenttoh <= 50] {polygon-fill: #ff4d4d;}#tracttemp [ medrenttoh <= 44.6] {polygon-fill: #ff7a7a;}#tracttemp [ medrenttoh <= 40.1] {polygon-fill: #ffa6a6;}#tracttemp [ medrenttoh <= 35.6] {polygon-fill: #fff2cc;}#tracttemp [ medrenttoh <= 31.1] {polygon-fill: #7fbfff;}#tracttemp [ medrenttoh <= 26.6] {polygon-fill: #40a0ff;}#tracttemp [ medrenttoh <= 22.1] {polygon-fill: #0080ff;}",                      
+                        sql: "SELECT cartodb_id, totalpop, nhwhite, the_geom, the_geom_webmercator, (nhwhite/totalpop)*100 as percent_white_12 FROM tract12 where totalpop > 100",
+                        cartocss: "#layer{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #layer [ percent_white_12 >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ percent_white_12 >= 20] {    polygon-fill: #FED976; } #layer [ percent_white_12 >= 35] {    polygon-fill: #FEB24C; } #layer [ percent_white_12 >= 50] {    polygon-fill: #FD8D3C; } #layer [ percent_white_12 >= 65] {    polygon-fill: #FC4E2A; } #layer [ percent_white_12 >= 80] {    polygon-fill: #E31A1C; } #layer [ percent_white_12 >= 90] {    polygon-fill: #B10026; }",
+                      interactivity: "cartodb_id"}]
+                    });
+    var l_percent_nhwhite_choro_12 = new L.LayerGroup();
+    percent_nhwhite_choro.addTo(l_percent_nhwhite_choro_12)
+          .on('done', function(layer) {
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_white_12', 'nhwhite', 'totalpop','cartodb_id'])
+         });
+
+var percent_foreignborn_choro = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT totalpop, foreignbor, cartodb_id, the_geom, the_geom_webmercator, (foreignbor/totalpop)*100 AS percent_fb_12 FROM tract12 where totalpop > 100",
+                        cartocss: "#layer{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #layer [ percent_fb_12 >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ percent_fb_12 >= 20] {    polygon-fill: #FED976; } #layer [ percent_fb_12 >= 35] {    polygon-fill: #FEB24C; } #layer [ percent_fb_12 >= 50] {    polygon-fill: #FD8D3C; } #layer [ percent_fb_12 >= 65] {    polygon-fill: #FC4E2A; } #layer [ percent_fb_12 >= 80] {    polygon-fill: #E31A1C; } #layer [ percent_fb_12 >= 90] {    polygon-fill: #B10026; }",
+                      interactivity: "cartodb_id"}]
+                    });
+    var l_percent_foreignborn_choro_12 = new L.LayerGroup();
+    percent_foreignborn_choro.addTo(l_percent_foreignborn_choro_12)
+          .on('done', function(layer) {
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_fb_12', 'foreignbor', 'totalpop', 'cartodb_id'])
+         });
+
+var percent_nhasian_choro = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT totalpop, nhasian, cartodb_id, the_geom_webmercator, (nhasian/totalpop)*100 as percent_asian_12 FROM tract12 where totalpop > 100",
+                        cartocss: "#layer{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #layer [ percent_asian_12 >= 10] {    polygon-fill: #FFFFB2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ percent_asian_12 >= 20] {    polygon-fill: #FED976; } #layer [ percent_asian_12 >= 35] {    polygon-fill: #FEB24C; } #layer [ percent_asian_12 >= 50] {    polygon-fill: #FD8D3C; } #layer [ percent_asian_12 >= 65] {    polygon-fill: #FC4E2A; } #layer [ percent_asian_12 >= 80] {    polygon-fill: #E31A1C; } #layer [ percent_asian_12 >= 90] {    polygon-fill: #B10026; }",
+                      interactivity: "cartodb_id"}]
+                    });
+    var l_percent_nhasian_choro_12 = new L.LayerGroup();
+    percent_nhasian_choro.addTo(l_percent_nhasian_choro_12)
+          .on('done', function(layer) {
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_asian_12', 'nhasian' ,'totalpop', 'cartodb_id'])
+         });
+
+var percent_hispanic_12_choro = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT cartodb_id, hispanic, totalpop, the_geom_webmercator, (hispanic/totalpop)*100 AS percent_hispanic_12 FROM tract12 where totalpop > 100",
+                        cartocss: "#layer{  polygon-fill: #fff;   polygon-opacity: 0;   line-color: #FFF;   line-width: 0;   line-opacity: 0; } #layer [ percent_hispanic_12 >= 10] {    polygon-fill: #FFFfb2;    polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ percent_hispanic_12 >= 20] {    polygon-fill: #FED976; } #layer [ percent_hispanic_12 >= 35] {    polygon-fill: #FEB24C; } #layer [ percent_hispanic_12 >= 50] {    polygon-fill: #FD8D3C; } #layer [ percent_hispanic_12 >= 65] {    polygon-fill: #FC4E2A; } #layer [ percent_hispanic_12 >= 80] {    polygon-fill: #E31A1C; } #layer [ percent_hispanic_12 >= 90] {    polygon-fill: #B10026; }",
+                      interactivity: "cartodb_id"}]
+                    });
+    var l_percent_hispanic_12_choro_12 = new L.LayerGroup();
+    percent_hispanic_12_choro.addTo(l_percent_hispanic_12_choro_12)
+          .on('done', function(layer) {
+           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['percent_hispanic_12','hispanic', 'totalpop', 'cartodb_id'])
+        });
+
+var median_inc_to_rent = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT cartodb_id, medrenttoh, medianhhin, the_geom_webmercator FROM tract12 WHERE Totalpop > 250",
+                        cartocss: "#layer{polygon-fill: #0080ff;polygon-opacity: 0.8;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#layer [ medrenttoh <= 50] {polygon-fill: #ff4d4d;}#layer [ medrenttoh <= 44.6] {polygon-fill: #ff7a7a;}#layer [ medrenttoh <= 40.1] {polygon-fill: #ffa6a6;}#layer [ medrenttoh <= 35.6] {polygon-fill: #fff2cc;}#layer [ medrenttoh <= 31.1] {polygon-fill: #7fbfff;}#layer [ medrenttoh <= 26.6] {polygon-fill: #40a0ff;}#layer [ medrenttoh <= 22.1] {polygon-fill: #0080ff;}",
                         interactivity: "cartodb_id"}]
                     });
-    var l_median_inc_to_rent = new L.LayerGroup();
-    median_inc_to_rent.addTo(l_median_inc_to_rent)
+    var l_median_inc_to_rent_12 = new L.LayerGroup();
+    median_inc_to_rent.addTo(l_median_inc_to_rent_12)
           .on('done', function(layer) {
-           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['medrenttoh','medianhhin', 'cartodb_id'])  
+           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['medrenttoh','medianhhin', 'cartodb_id'])
         });
 
-var median_inc_choro = cartodb.createLayer(map_object, {   
+var median_inc_choro = cartodb.createLayer(map_object, {
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
-                        sql: "SELECT cartodb_id, the_geom_webmercator, medianhhin FROM tracttemp WHERE Totalpop > 250",
-                        cartocss: "#tracttemp{   polygon-fill: #d73027;   polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #tracttemp [ medianhhin <= 243622] {    polygon-fill: #1a9850; } #tracttemp [ medianhhin <= 84240] {    polygon-fill: #8cce8a; } #tracttemp [ medianhhin <= 67394] {    polygon-fill: #d2ecb4; } #tracttemp [ medianhhin <= 57176] {    polygon-fill: #fff2cc; } #tracttemp [ medianhhin <= 48159] {    polygon-fill: #fed6b0; } #tracttemp [ medianhhin <= 39538] {    polygon-fill: #f79272; } #tracttemp [ medianhhin <= 30106] {    polygon-fill: #d73027; }",
+                        sql: "SELECT cartodb_id, the_geom_webmercator, medianhhin FROM tract12 WHERE Totalpop > 250",
+                        cartocss: "#layer{ polygon-fill: #d73027;   polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ medianhhin <= 243622] { polygon-fill: #1a9850; } #layer [ medianhhin <= 84240] { polygon-fill: #8cce8a; } #layer [ medianhhin <= 67394] { polygon-fill: #d2ecb4; } #layer [ medianhhin <= 57176] { polygon-fill: #fff2cc; } #layer [ medianhhin <= 48159] { polygon-fill: #fed6b0; } #layer [ medianhhin <= 39538] { polygon-fill: #f79272; } #layer [ medianhhin <= 30106] { polygon-fill: #d73027; }",
                       interactivity: "cartodb_id"}]
                     });
-    var l_median_inc_choro  = new L.LayerGroup();
-    median_inc_choro.addTo(l_median_inc_choro)
+    var l_median_inc_choro_12  = new L.LayerGroup();
+    median_inc_choro.addTo(l_median_inc_choro_12)
            .on('done', function(layer) {
-           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['medianhhin', 'cartodb_id'])  
+           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['medianhhin', 'cartodb_id'])
         });
 
-var bangladesh_gradu = cartodb.createLayer(map_object, {   
+// testing graduated cylinder size w/redundant code reduction using variables //
+var ethnicity_props= "marker-fill-opacity: 0; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse;  marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; ";
+var redundantcode = "marker-fill-opacity: 0.7; marker-line-width: 2; marker-line-opacity: 1;";
+var text_props = "text-face-name: 'Lato Bold'; text-size: 11; text-fill: #FFF; text-halo-radius: 1; text-halo-fill: #000; text-allow-overlap: true; text-placement: point; text-placement-type: simple; text-character-spacing: 1.1; text-label-position-tolerance: 20;";
+  var size6css =  "marker-width: 27.0; "+redundantcode+" marker-fill-opacity: 0.9; ";   // n >=1001
+  var size5css =  "marker-width: 20.0; "+redundantcode;   // 401 < n <=1000
+  var size4css =  "marker-width: 14.0; "+redundantcode;   // 201 < n <=400
+  var size3css =  "marker-width: 11.0; "+redundantcode;   // 51 < n <=200
+  var size2css =  "marker-width: 7.5;  "+redundantcode;   // 21 < n <=50
+  var size1css =  "marker-width: 4.0;  "+redundantcode;   // 6 < n <=20
+  var size0css =  "marker-width: 0; marker-fill-opacity: 0; marker-line-width: 0; marker-line-opacity: 0;"; // n <=5
+
+// color choices for individual groups
+var bangladesh_color = "marker-fill: #5CA2D1; marker-line-color: #5CA2D1; ";
+var pakistani_color = "marker-fill: #966B6B; marker-line-color: #966B6B; ";
+var asianindia_color = "marker-fill: #e25043; marker-line-color: #e25043; ";
+var arab_color = "marker-fill: #6fc98d; marker-line-color: #6fc98d; ";
+var turkish_color = "marker-fill: #e0a8bf; marker-line-color: #e0a8bf; ";
+var senegalese_color = "marker-fill: #0d697f; marker-line-color: #0d697f; ";
+
+// ethnicity layers go below this line
+var bangladesh_gradu_12 = cartodb.createLayer(map_object, {
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
-                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, fbbanglade, bangladesh FROM tracttemp WHERE bangladesh > 5",
-                        cartocss:  "#layer{ marker-fill-opacity: 0.0; marker-line-color: #4b95c6; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #5CA2D1; marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; } #layer [ bangladesh <= 1600] { marker-width: 23.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ bangladesh <= 400] { marker-width: 15.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ bangladesh <= 200] { marker-width: 11.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ bangladesh <= 50] { marker-width: 7.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ bangladesh < 10] { marker-width: 5.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ bangladesh <= 5] { marker-width: 0; marker-fill-opacity: 0.0; marker-line-width: 0; marker-line-opacity: 0; } #layer [ bangladesh <= 1600] [zoom >= 12] {marker-width: 34;} #layer [ bangladesh <= 400] [zoom >= 12] {marker-width: 23;} #layer [ bangladesh <= 200] [zoom >= 12] {marker-width: 17;} #layer [ bangladesh <= 50] [zoom >= 12] {marker-width: 11;} #layer [ bangladesh < 10] [zoom >= 12] {marker-width: 8;} #layer [ bangladesh <= 5] [zoom >= 12] {marker-width: 0;} #layer [ bangladesh <= 1600] [zoom >= 13] {marker-width: 52;} #layer [ bangladesh <= 400] [zoom >= 13] {marker-width: 35;} #layer [ bangladesh <= 200] [zoom >= 13] {marker-width: 25;} #layer [ bangladesh <= 50] [zoom >= 13] {marker-width: 17;} #layer [ bangladesh < 10] [zoom >= 13] {marker-width: 11;} #layer [ bangladesh <= 5] [zoom >= 13] {marker-width: 0.0;} #layer [ bangladesh <= 1600] [zoom >= 14] {marker-width: 78;} #layer [ bangladesh <= 400] [zoom >= 14] {marker-width: 52;} #layer [ bangladesh <= 200] [zoom >= 14] {marker-width: 37;} #layer [ bangladesh <= 50] [zoom >= 14] {marker-width: 25;} #layer [ bangladesh < 10] [zoom >= 14] {marker-width: 15;} #layer [ bangladesh <= 5] [zoom >= 14] {marker-width: 0.0;} #layer [ bangladesh <= 1600] [zoom >= 15] {marker-width: 116;} #layer [ bangladesh <= 400] [zoom >= 15] {marker-width: 78;} #layer [ bangladesh <= 200] [zoom >= 15] {marker-width: 56;} #layer [ bangladesh <= 50] [zoom >= 15] {marker-width: 38;} #layer [ bangladesh < 10] [zoom >= 15] {marker-width: 21;} #layer [ bangladesh <= 5] [zoom >= 15] {marker-width: 0.0;} #layer::labels [zoom >= 13] [bangladesh > 5] { /** label size for single-digit values */ text-name: [bangladesh]; text-face-name: 'Lato Bold'; text-size: 8; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 13] [bangladesh >= 10] { text-name: [bangladesh]; text-size: 11; text-fill: #FFFFFF; } #layer::labels [zoom >= 13] [bangladesh >= 50] { text-name: [bangladesh]; text-size: 11; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 13] [bangladesh >= 400] { text-name: [bangladesh]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 14] [bangladesh > 5] { /** label size for single-digit values */ text-name: [bangladesh]; text-face-name: 'Lato Bold'; text-size: 10; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 14] [bangladesh >= 10] { text-name: [bangladesh]; text-fill: #FFFFFF; text-size: 12; } #layer::labels [zoom >= 14] [bangladesh >= 50] { text-name: [bangladesh]; text-size: 12; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 14] [bangladesh >= 400] { text-name: [bangladesh]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [bangladesh >= 10] { text-name: [bangladesh]; text-face-name: 'Lato Bold'; text-size: 15; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000; text-halo-radius: 0.4; text-dy: 0; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 15] [bangladesh >= 50] { text-name: [bangladesh]; text-size: 16; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [bangladesh >= 400] {text-name: [bangladesh]; text-size: 18; text-fill: #FFFFFF; text-halo-radius: 0.4;}",
+                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, fbbanglade, bangladesh FROM tract12 WHERE bangladesh > 5",
+                        cartocss:  "#layer{ "+bangladesh_color+ethnicity_props+"} #layer [ bangladesh >= 1001] { "+size6css+" } #layer [ bangladesh <= 1000] { "+size5css+" } #layer [ bangladesh <= 400] { "+size4css+" } #layer [ bangladesh  <= 200] { "+size3css+" } #layer [ bangladesh <= 50] { "+size2css+"  } #layer [ bangladesh <= 20] { "+size1css+" } #layer [ bangladesh  <= 5] { "+size0css+"} #layer::labels [zoom >= 13] [bangladesh>= 400] { text-name: [bangladesh]; "+text_props+"}",
                       interactivity: "cartodb_id"}]
                     });
-    var l_bangladesh_gradu  = new L.LayerGroup();
-    bangladesh_gradu.addTo(l_bangladesh_gradu)
+    var l_bangladesh_gradu_12  = new L.LayerGroup();
+    bangladesh_gradu_12.addTo(l_bangladesh_gradu_12)
           .on('done', function(layer) {
-           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['bangladesh', 'fbbanglade', 'cartodb_id'])  
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['bangladesh', 'fbbanglade', 'cartodb_id'])
         });
 
-var pakistani_gradu = cartodb.createLayer(map_object, {   
+var pakistani_gradu_12 = cartodb.createLayer(map_object, {
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
-                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, fbpakistan, pakistani FROM tracttemp WHERE pakistani > 5",
-                        cartocss:  "#layer{ marker-fill-opacity: 0.0; marker-line-color: #966B6B; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #966B6B; marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; } #layer [ pakistani <= 1600] { marker-width: 23.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ pakistani <= 400] { marker-width: 15.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ pakistani <= 200] { marker-width: 11.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ pakistani <= 50] { marker-width: 7.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ pakistani < 10] { marker-width: 5.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ pakistani <= 5] { marker-width: 0; marker-fill-opacity: 0.0; marker-line-width: 0; marker-line-opacity: 0; } #layer [ pakistani <= 1600] [zoom >= 12] {marker-width: 34;} #layer [ pakistani <= 400] [zoom >= 12] {marker-width: 23;} #layer [ pakistani <= 200] [zoom >= 12] {marker-width: 17;} #layer [ pakistani <= 50] [zoom >= 12] {marker-width: 11;} #layer [ pakistani < 10] [zoom >= 12] {marker-width: 8;} #layer [ pakistani <= 5] [zoom >= 12] {marker-width: 0;} #layer [ pakistani <= 1600] [zoom >= 13] {marker-width: 52;} #layer [ pakistani <= 400] [zoom >= 13] {marker-width: 35;} #layer [ pakistani <= 200] [zoom >= 13] {marker-width: 25;} #layer [ pakistani <= 50] [zoom >= 13] {marker-width: 17;} #layer [ pakistani < 10] [zoom >= 13] {marker-width: 11;} #layer [ pakistani <= 5] [zoom >= 13] {marker-width: 0.0;} #layer [ pakistani <= 1600] [zoom >= 14] {marker-width: 78;} #layer [ pakistani <= 400] [zoom >= 14] {marker-width: 52;} #layer [ pakistani <= 200] [zoom >= 14] {marker-width: 37;} #layer [ pakistani <= 50] [zoom >= 14] {marker-width: 25;} #layer [ pakistani < 10] [zoom >= 14] {marker-width: 15;} #layer [ pakistani <= 5] [zoom >= 14] {marker-width: 0.0;} #layer [ pakistani <= 1600] [zoom >= 15] {marker-width: 116;} #layer [ pakistani <= 400] [zoom >= 15] {marker-width: 78;} #layer [ pakistani <= 200] [zoom >= 15] {marker-width: 56;} #layer [ pakistani <= 50] [zoom >= 15] {marker-width: 38;} #layer [ pakistani < 10] [zoom >= 15] {marker-width: 21;} #layer [ pakistani <= 5] [zoom >= 15] {marker-width: 0.0;} #layer::labels [zoom >= 13] [pakistani > 5] { /** label size for single-digit values */ text-name: [pakistani]; text-face-name: 'Lato Bold'; text-size: 8; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 13] [pakistani >= 10] { text-name: [pakistani]; text-size: 11; text-fill: #FFFFFF; } #layer::labels [zoom >= 13] [pakistani >= 50] { text-name: [pakistani]; text-size: 11; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 13] [pakistani >= 400] { text-name: [pakistani]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 14] [pakistani > 5] { /** label size for single-digit values */ text-name: [pakistani]; text-face-name: 'Lato Bold'; text-size: 10; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 14] [pakistani >= 10] { text-name: [pakistani]; text-fill: #FFFFFF; text-size: 12; } #layer::labels [zoom >= 14] [pakistani >= 50] { text-name: [pakistani]; text-size: 12; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 14] [pakistani >= 400] { text-name: [pakistani]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [pakistani >= 10] { text-name: [pakistani]; text-face-name: 'Lato Bold'; text-size: 15; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000; text-halo-radius: 0.4; text-dy: 0; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 15] [pakistani >= 50] { text-name: [pakistani]; text-size: 16; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [pakistani >= 400] {text-name: [pakistani]; text-size: 18; text-fill: #FFFFFF; text-halo-radius: 0.4;}",                      
-                      interactivity: "cartodb_id"}]
-                    });
-    var l_pakistani_gradu  = new L.LayerGroup();
-    pakistani_gradu.addTo(l_pakistani_gradu)
-              .on('done', function(layer) {
-           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['pakistani', 'fbpakistan', 'cartodb_id'])  
-        });
-
-var asianindia_gradu = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, asianindia FROM tracttemp WHERE asianindia > 5",
-                        cartocss:  "#layer{ marker-fill-opacity: 0.0; marker-line-color: #e25043; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #F84F40; marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; } #layer [ asianindia <= 1600] { marker-width: 23.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ asianindia <= 400] { marker-width: 15.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ asianindia <= 200] { marker-width: 11.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ asianindia <= 50] { marker-width: 7.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ asianindia < 10] { marker-width: 5.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ asianindia <= 5] { marker-width: 0; marker-fill-opacity: 0.0; marker-line-width: 0; marker-line-opacity: 0; } #layer [ asianindia <= 1600] [zoom >= 12] {marker-width: 34;} #layer [ asianindia <= 400] [zoom >= 12] {marker-width: 23;} #layer [ asianindia <= 200] [zoom >= 12] {marker-width: 17;} #layer [ asianindia <= 50] [zoom >= 12] {marker-width: 11;} #layer [ asianindia < 10] [zoom >= 12] {marker-width: 8;} #layer [ asianindia <= 5] [zoom >= 12] {marker-width: 0;} #layer [ asianindia <= 1600] [zoom >= 13] {marker-width: 52;} #layer [ asianindia <= 400] [zoom >= 13] {marker-width: 35;} #layer [ asianindia <= 200] [zoom >= 13] {marker-width: 25;} #layer [ asianindia <= 50] [zoom >= 13] {marker-width: 17;} #layer [ asianindia < 10] [zoom >= 13] {marker-width: 11;} #layer [ asianindia <= 5] [zoom >= 13] {marker-width: 0.0;} #layer [ asianindia <= 1600] [zoom >= 14] {marker-width: 78;} #layer [ asianindia <= 400] [zoom >= 14] {marker-width: 52;} #layer [ asianindia <= 200] [zoom >= 14] {marker-width: 37;} #layer [ asianindia <= 50] [zoom >= 14] {marker-width: 25;} #layer [ asianindia < 10] [zoom >= 14] {marker-width: 15;} #layer [ asianindia <= 5] [zoom >= 14] {marker-width: 0.0;} #layer [ asianindia <= 1600] [zoom >= 15] {marker-width: 116;} #layer [ asianindia <= 400] [zoom >= 15] {marker-width: 78;} #layer [ asianindia <= 200] [zoom >= 15] {marker-width: 56;} #layer [ asianindia <= 50] [zoom >= 15] {marker-width: 38;} #layer [ asianindia < 10] [zoom >= 15] {marker-width: 21;} #layer [ asianindia <= 5] [zoom >= 15] {marker-width: 0.0;} #layer::labels [zoom >= 13] [asianindia > 5] { /** label size for single-digit values */ text-name: [asianindia]; text-face-name: 'Lato Bold'; text-size: 8; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 13] [asianindia >= 10] { text-name: [asianindia]; text-size: 11; text-fill: #FFFFFF; } #layer::labels [zoom >= 13] [asianindia >= 50] { text-name: [asianindia]; text-size: 11; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 13] [asianindia >= 400] { text-name: [asianindia]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 14] [asianindia > 5] { /** label size for single-digit values */ text-name: [asianindia]; text-face-name: 'Lato Bold'; text-size: 10; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 14] [asianindia >= 10] { text-name: [asianindia]; text-fill: #FFFFFF; text-size: 12; } #layer::labels [zoom >= 14] [asianindia >= 50] { text-name: [asianindia]; text-size: 12; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 14] [asianindia >= 400] { text-name: [asianindia]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [asianindia >= 10] { text-name: [asianindia]; text-face-name: 'Lato Bold'; text-size: 15; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000; text-halo-radius: 0.4; text-dy: 0; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 15] [asianindia >= 50] { text-name: [asianindia]; text-size: 16; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [asianindia >= 400] {text-name: [asianindia]; text-size: 18; text-fill: #FFFFFF; text-halo-radius: 0.4;}",                      interactivity: "cartodb_id"}]
-                    });
-    var l_asianindia_gradu  = new L.LayerGroup();
-    asianindia_gradu.addTo(l_asianindia_gradu)
-                  .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['asianindia', 'cartodb_id'])
-         }); 
-
-var arab_gradu = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, arab FROM tracttemp WHERE arab > 5",
-                        cartocss:  "#layer{ marker-fill-opacity: 0.0; marker-line-color: #6fc98d; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #6EBC88; marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; } #layer [ arab <= 1600] { marker-width: 23.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ arab <= 400] { marker-width: 15.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ arab <= 200] { marker-width: 11.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ arab <= 50] { marker-width: 7.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ arab < 10] { marker-width: 5.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ arab <= 5] { marker-width: 0; marker-fill-opacity: 0.0; marker-line-width: 0; marker-line-opacity: 0; } #layer [ arab <= 1600] [zoom >= 12] {marker-width: 34;} #layer [ arab <= 400] [zoom >= 12] {marker-width: 23;} #layer [ arab <= 200] [zoom >= 12] {marker-width: 17;} #layer [ arab <= 50] [zoom >= 12] {marker-width: 11;} #layer [ arab < 10] [zoom >= 12] {marker-width: 8;} #layer [ arab <= 5] [zoom >= 12] {marker-width: 0;} #layer [ arab <= 1600] [zoom >= 13] {marker-width: 52;} #layer [ arab <= 400] [zoom >= 13] {marker-width: 35;} #layer [ arab <= 200] [zoom >= 13] {marker-width: 25;} #layer [ arab <= 50] [zoom >= 13] {marker-width: 17;} #layer [ arab < 10] [zoom >= 13] {marker-width: 11;} #layer [ arab <= 5] [zoom >= 13] {marker-width: 0.0;} #layer [ arab <= 1600] [zoom >= 14] {marker-width: 78;} #layer [ arab <= 400] [zoom >= 14] {marker-width: 52;} #layer [ arab <= 200] [zoom >= 14] {marker-width: 37;} #layer [ arab <= 50] [zoom >= 14] {marker-width: 25;} #layer [ arab < 10] [zoom >= 14] {marker-width: 15;} #layer [ arab <= 5] [zoom >= 14] {marker-width: 0.0;} #layer [ arab <= 1600] [zoom >= 15] {marker-width: 116;} #layer [ arab <= 400] [zoom >= 15] {marker-width: 78;} #layer [ arab <= 200] [zoom >= 15] {marker-width: 56;} #layer [ arab <= 50] [zoom >= 15] {marker-width: 38;} #layer [ arab < 10] [zoom >= 15] {marker-width: 21;} #layer [ arab <= 5] [zoom >= 15] {marker-width: 0.0;} #layer::labels [zoom >= 13] [arab > 5] { /** label size for single-digit values */ text-name: [arab]; text-face-name: 'Lato Bold'; text-size: 8; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 13] [arab >= 10] { text-name: [arab]; text-size: 11; text-fill: #FFFFFF; } #layer::labels [zoom >= 13] [arab >= 50] { text-name: [arab]; text-size: 11; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 13] [arab >= 400] { text-name: [arab]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 14] [arab > 5] { /** label size for single-digit values */ text-name: [arab]; text-face-name: 'Lato Bold'; text-size: 10; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 14] [arab >= 10] { text-name: [arab]; text-fill: #FFFFFF; text-size: 12; } #layer::labels [zoom >= 14] [arab >= 50] { text-name: [arab]; text-size: 12; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 14] [arab >= 400] { text-name: [arab]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [arab >= 10] { text-name: [arab]; text-face-name: 'Lato Bold'; text-size: 15; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000; text-halo-radius: 0.4; text-dy: 0; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 15] [arab >= 50] { text-name: [arab]; text-size: 16; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [arab >= 400] {text-name: [arab]; text-size: 18; text-fill: #FFFFFF; text-halo-radius: 0.4;}",                      
+                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, fbpakistan, pakistani FROM tract12 WHERE pakistani > 5",
+                        cartocss:  "#layer{ "+pakistani_color+ethnicity_props+"} #layer [ pakistani >= 1001] { "+size6css+" } #layer [pakistani <= 1000] { "+size5css+" } #layer [pakistani <= 400] { "+size4css+" } #layer [ pakistani  <= 200] { "+size3css+" } #layer [pakistani <= 50] { "+size2css+"  } #layer [pakistani <= 20] { "+size1css+" } #layer [pakistani <= 5] { "+size0css+"} #layer::labels [zoom >= 13] [pakistani>= 400] {text-name: [pakistani]; "+text_props+"}",
                         interactivity: "cartodb_id"}]
                     });
-    var l_arab_gradu = new L.LayerGroup();
-    arab_gradu.addTo(l_arab_gradu)
-              .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['arab', 'cartodb_id'])
-         }); 
+    var l_pakistani_gradu_12  = new L.LayerGroup();
+    pakistani_gradu_12.addTo(l_pakistani_gradu_12)
+           .on('done', function(layer) {
+           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['pakistani', 'fbpakistan', 'cartodb_id'])
+        });
 
-var turkish_gradu = cartodb.createLayer(map_object, {   
+var asianindia_gradu_12 = cartodb.createLayer(map_object, {
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
-                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, turkish FROM tracttemp WHERE turkish > 5",
-                        cartocss:  "#layer{ marker-fill-opacity: 0.0; marker-line-color: #e0a8bf; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #f4aee0; marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; } #layer [ turkish <= 1600] { marker-width: 23.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ turkish <= 400] { marker-width: 15.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ turkish <= 200] { marker-width: 11.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ turkish <= 50] { marker-width: 7.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ turkish < 10] { marker-width: 5.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ turkish <= 5] { marker-width: 0; marker-fill-opacity: 0.0; marker-line-width: 0; marker-line-opacity: 0; } #layer [ turkish <= 1600] [zoom >= 12] {marker-width: 34;} #layer [ turkish <= 400] [zoom >= 12] {marker-width: 23;} #layer [ turkish <= 200] [zoom >= 12] {marker-width: 17;} #layer [ turkish <= 50] [zoom >= 12] {marker-width: 11;} #layer [ turkish < 10] [zoom >= 12] {marker-width: 8;} #layer [ turkish <= 5] [zoom >= 12] {marker-width: 0;} #layer [ turkish <= 1600] [zoom >= 13] {marker-width: 52;} #layer [ turkish <= 400] [zoom >= 13] {marker-width: 35;} #layer [ turkish <= 200] [zoom >= 13] {marker-width: 25;} #layer [ turkish <= 50] [zoom >= 13] {marker-width: 17;} #layer [ turkish < 10] [zoom >= 13] {marker-width: 11;} #layer [ turkish <= 5] [zoom >= 13] {marker-width: 0.0;} #layer [ turkish <= 1600] [zoom >= 14] {marker-width: 78;} #layer [ turkish <= 400] [zoom >= 14] {marker-width: 52;} #layer [ turkish <= 200] [zoom >= 14] {marker-width: 37;} #layer [ turkish <= 50] [zoom >= 14] {marker-width: 25;} #layer [ turkish < 10] [zoom >= 14] {marker-width: 15;} #layer [ turkish <= 5] [zoom >= 14] {marker-width: 0.0;} #layer [ turkish <= 1600] [zoom >= 15] {marker-width: 116;} #layer [ turkish <= 400] [zoom >= 15] {marker-width: 78;} #layer [ turkish <= 200] [zoom >= 15] {marker-width: 56;} #layer [ turkish <= 50] [zoom >= 15] {marker-width: 38;} #layer [ turkish < 10] [zoom >= 15] {marker-width: 21;} #layer [ turkish <= 5] [zoom >= 15] {marker-width: 0.0;} #layer::labels [zoom >= 13] [turkish > 5] { /** label size for single-digit values */ text-name: [turkish]; text-face-name: 'Lato Bold'; text-size: 8; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 13] [turkish >= 10] { text-name: [turkish]; text-size: 11; text-fill: #FFFFFF; } #layer::labels [zoom >= 13] [turkish >= 50] { text-name: [turkish]; text-size: 11; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 13] [turkish >= 400] { text-name: [turkish]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 14] [turkish > 5] { /** label size for single-digit values */ text-name: [turkish]; text-face-name: 'Lato Bold'; text-size: 10; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 14] [turkish >= 10] { text-name: [turkish]; text-fill: #FFFFFF; text-size: 12; } #layer::labels [zoom >= 14] [turkish >= 50] { text-name: [turkish]; text-size: 12; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 14] [turkish >= 400] { text-name: [turkish]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [turkish >= 10] { text-name: [turkish]; text-face-name: 'Lato Bold'; text-size: 15; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000; text-halo-radius: 0.4; text-dy: 0; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 15] [turkish >= 50] { text-name: [turkish]; text-size: 16; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [turkish >= 400] {text-name: [turkish]; text-size: 18; text-fill: #FFFFFF; text-halo-radius: 0.4;}",
-                      interactivity: "cartodb_id"}]
+                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, asianindia, fbindia FROM tract12 WHERE asianindia > 5",
+                        cartocss: "#layer{ "+asianindia_color+ethnicity_props+"} #layer [ asianindia >= 1001] { "+size6css+" }  #layer [ asianindia <= 1000] { "+size5css+" } #layer [ asianindia <= 400] { "+size4css+" } #layer [ asianindia  <= 200] { "+size3css+" } #layer [ asianindia <= 50] { "+size2css+"  } #layer [ asianindia <= 20] { "+size1css+" } #layer [ asianindia  <= 5] { "+size0css+"} #layer::labels [zoom >= 13] [asianindia>= 400] { text-name: [asianindia]; "+text_props+"}",
+                       interactivity: "cartodb_id"}]
                     });
-    var l_turkish_gradu  = new L.LayerGroup();
-    turkish_gradu.addTo(l_turkish_gradu)
-         .on('done', function(layer) {
-         cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['turkish', 'cartodb_id'])
-         }); 
-
-var senegalese_gradu = cartodb.createLayer(map_object, {   
-                      user_name: 'andrewmartini',
-                      type: 'cartodb',
-                      sublayers: [{
-                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, senegalese FROM tracttemp WHERE senegalese > 5",
-                        cartocss:  "#layer{ marker-fill-opacity: 0.0; marker-line-color: #0b5f72; marker-line-width: 0; marker-line-opacity: 0; marker-placement: point; marker-multi-policy: largest; marker-type: ellipse; marker-fill: #0d697f; marker-allow-overlap: true; marker-clip: false; marker-comp-op: darken; } #layer [ senegalese <= 1600] { marker-width: 23.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ senegalese <= 400] { marker-width: 15.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ senegalese <= 200] { marker-width: 11.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ senegalese <= 50] { marker-width: 7.5; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ senegalese < 10] { marker-width: 5.0; marker-fill-opacity: 0.8; marker-line-width: 1.5; marker-line-opacity: 1; } #layer [ senegalese <= 5] { marker-width: 0; marker-fill-opacity: 0.0; marker-line-width: 0; marker-line-opacity: 0; } #layer [ senegalese <= 1600] [zoom >= 12] {marker-width: 34;} #layer [ senegalese <= 400] [zoom >= 12] {marker-width: 23;} #layer [ senegalese <= 200] [zoom >= 12] {marker-width: 17;} #layer [ senegalese <= 50] [zoom >= 12] {marker-width: 11;} #layer [ senegalese < 10] [zoom >= 12] {marker-width: 8;} #layer [ senegalese <= 5] [zoom >= 12] {marker-width: 0;} #layer [ senegalese <= 1600] [zoom >= 13] {marker-width: 52;} #layer [ senegalese <= 400] [zoom >= 13] {marker-width: 35;} #layer [ senegalese <= 200] [zoom >= 13] {marker-width: 25;} #layer [ senegalese <= 50] [zoom >= 13] {marker-width: 17;} #layer [ senegalese < 10] [zoom >= 13] {marker-width: 11;} #layer [ senegalese <= 5] [zoom >= 13] {marker-width: 0.0;} #layer [ senegalese <= 1600] [zoom >= 14] {marker-width: 78;} #layer [ senegalese <= 400] [zoom >= 14] {marker-width: 52;} #layer [ senegalese <= 200] [zoom >= 14] {marker-width: 37;} #layer [ senegalese <= 50] [zoom >= 14] {marker-width: 25;} #layer [ senegalese < 10] [zoom >= 14] {marker-width: 15;} #layer [ senegalese <= 5] [zoom >= 14] {marker-width: 0.0;} #layer [ senegalese <= 1600] [zoom >= 15] {marker-width: 116;} #layer [ senegalese <= 400] [zoom >= 15] {marker-width: 78;} #layer [ senegalese <= 200] [zoom >= 15] {marker-width: 56;} #layer [ senegalese <= 50] [zoom >= 15] {marker-width: 38;} #layer [ senegalese < 10] [zoom >= 15] {marker-width: 21;} #layer [ senegalese <= 5] [zoom >= 15] {marker-width: 0.0;} #layer::labels [zoom >= 13] [senegalese > 5] { /** label size for single-digit values */ text-name: [senegalese]; text-face-name: 'Lato Bold'; text-size: 8; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 13] [senegalese >= 10] { text-name: [senegalese]; text-size: 11; text-fill: #FFFFFF; } #layer::labels [zoom >= 13] [senegalese >= 50] { text-name: [senegalese]; text-size: 11; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 13] [senegalese >= 400] { text-name: [senegalese]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 14] [senegalese > 5] { /** label size for single-digit values */ text-name: [senegalese]; text-face-name: 'Lato Bold'; text-size: 10; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000000; text-halo-radius: 0.1; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 14] [senegalese >= 10] { text-name: [senegalese]; text-fill: #FFFFFF; text-size: 12; } #layer::labels [zoom >= 14] [senegalese >= 50] { text-name: [senegalese]; text-size: 12; text-fill: #FFFFFF; text-halo-radius: 0.2; } #layer::labels [zoom >= 14] [senegalese >= 400] { text-name: [senegalese]; text-size: 15; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [senegalese >= 10] { text-name: [senegalese]; text-face-name: 'Lato Bold'; text-size: 15; text-wrap-before: true; text-wrap-width: 20; text-label-position-tolerance: 10; text-fill: #FFFFFF; text-halo-fill: #000; text-halo-radius: 0.4; text-dy: 0; text-allow-overlap: true; text-placement: point; text-placement-type: simple; } #layer::labels [zoom >= 15] [senegalese >= 50] { text-name: [senegalese]; text-size: 16; text-fill: #FFFFFF; text-halo-radius: 0.4; } #layer::labels [zoom >= 15] [senegalese >= 400] {text-name: [senegalese]; text-size: 18; text-fill: #FFFFFF; text-halo-radius: 0.4;}",
-                      interactivity: "cartodb_id"}]
-                    });
-    var l_senegalese_gradu  = new L.LayerGroup();
-    senegalese_gradu.addTo(l_senegalese_gradu)
+    var l_asianindia_gradu_12  = new L.LayerGroup();
+    asianindia_gradu_12.addTo(l_asianindia_gradu_12)
           .on('done', function(layer) {
-          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['senegalese', 'cartodb_id'])
-         }); 
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['asianindia', 'fbindia' , 'cartodb_id'])
+         });
 
-    
-var dot_bike_2015 = cartodb.createLayer(map_object, { 
+var arab_gradu_12 = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, arab, fbarab FROM tract12 WHERE arab > 5",
+                        cartocss:  "#layer{  "+arab_color+ethnicity_props+"} #layer [ arab >= 1001] { "+size6css+" } #layer [ arab <= 1000] { "+size5css+" } #layer [ arab <= 400] { "+size4css+" } #layer [ arab  <= 200] { "+size3css+" } #layer [ arab <= 50] { "+size2css+"  } #layer [ arab <= 20] { "+size1css+" } #layer [ arab  <= 5] { "+size0css+"} #layer::labels [zoom >= 13] [arab>= 400] { text-name: [arab]; "+text_props+"}",
+                        interactivity: "cartodb_id"}]
+                    });
+    var l_arab_gradu_12 = new L.LayerGroup();
+    arab_gradu_12.addTo(l_arab_gradu_12)
+          .on('done', function(layer) {
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['arab', 'fbarab', 'cartodb_id'])
+         });
+
+var turkish_gradu_12 = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, turkish  FROM tract12 WHERE turkish > 5",
+                        cartocss:  "#layer{  "+turkish_color+ethnicity_props+"} #layer [ turkish >= 1001] { "+size6css+" } #layer [ turkish <= 1000] { "+size5css+" } #layer [ turkish <= 400] { "+size4css+" } #layer [ turkish  <= 200] { "+size3css+" } #layer [ turkish <= 50] { "+size2css+"  } #layer [ turkish <= 20] { "+size1css+" } #layer [ turkish  <= 5] { "+size0css+"} #layer::labels [zoom >= 13] [turkish>= 400] { text-name: [turkish]; "+text_props+"}",
+                        interactivity: "cartodb_id"}]
+                    });
+    var l_turkish_gradu_12  = new L.LayerGroup();
+    turkish_gradu_12.addTo(l_turkish_gradu_12)
+         .on('done', function(layer) {
+         cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['turkish',  'cartodb_id'])
+         });
+
+var senegalese_gradu_12 = cartodb.createLayer(map_object, {
+                      user_name: 'andrewmartini',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT the_geom, the_geom_webmercator, cartodb_id, senegalese, fbwafrica FROM tract12 WHERE senegalese > 5",
+                        cartocss:  "#layer{  "+senegalese_color+ethnicity_props+"} #layer [ senegalese >= 1001] { "+size6css+" } #layer [ senegalese <= 1000] { "+size5css+" } #layer [ senegalese <= 400] { "+size4css+" } #layer [ senegalese  <= 200] { "+size3css+" } #layer [ senegalese <= 50] { "+size2css+"  } #layer [ senegalese <= 20] { "+size1css+" } #layer [ senegalese  <= 5] { "+size0css+"} #layer::labels [zoom >= 13] [senegalese>= 400] { text-name: [senegalese]; "+text_props+"}",
+                        interactivity: "cartodb_id"}]
+                    });
+    var l_senegalese_gradu_12  = new L.LayerGroup();
+    senegalese_gradu_12.addTo(l_senegalese_gradu_12)
+          .on('done', function(layer) {
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['senegalese', 'fbwafrica', 'cartodb_id'])
+          });
+
+// </> end ethnicity layers
+
+var dot_bike_2015 = cartodb.createLayer(map_object, {
                       user_name: 'andrewmartini',
                       type: 'cartodb',
                       sublayers: [{
                         sql: "SELECT * FROM nyc_bike_routes_2015",
-                        cartocss: "#nyc_bike_routes_2015 { line-opacity: 0.7; } #nyc_bike_routes_2015 [facilitycl='I'] { line-color: #055D00; line-width: 4; } #nyc_bike_routes_2015[facilitycl='II'] { line-color: #055D00; line-width: 3; } #nyc_bike_routes_2015[facilitycl='III'] { line-color: #229A00; line-width: 3; line-dasharray: 6,3; } #nyc_bike_routes_2015{ line-color: #fdbf6f;  line-width: 2;}",
+                        cartocss: "#nyc_bike_routes_2015 { line-opacity: 0.7; } #nyc_bike_routes_2015 [facilitycl='I'] { line-color: #055D00; line-width: 4; } #nyc_bike_routes_2015[facilitycl='II'] { line-color: #055D00; line-width: 3; } #nyc_bike_routes_2015[facilitycl='III'] { line-color: #229A00; line-width: 3; line-dasharray: 6,3; } #nyc_bike_routes_2015 { line-color: #fdbf6f;  line-width: 2;}",
                       interactivity: "cartodb_id"}]
                     });
     var l_dot_bike_2015 = new L.LayerGroup();
@@ -852,12 +848,31 @@ var dot_bike_2015 = cartodb.createLayer(map_object, {
           cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['street', 'fromstreet', 'tostreet', 'tf_facilit', 'facilitycl', 'allclasses'])
          });
 
-// initial layers    
+
+var rent_stabl = cartodb.createLayer(map_object, {
+                      user_name: 'chenrick',
+                      type: 'cartodb',
+                      sublayers: [{
+                        sql: "SELECT * FROM  public.all_nyc_likely_rent_stabl_merged",
+                        cartocss: "#layer {polygon-fill: #BB75DC; polygon-opacity: 0.8; line-color: #FFF;line-width: 0.1;line-opacity: 0.7;}",
+                      interactivity: "cartodb_id"}]
+                    });
+    var l_rent_stabl = new L.LayerGroup();
+    rent_stabl.addTo(l_rent_stabl)
+          .on('done', function(layer) {
+          cdb.vis.Vis.addInfowindow(map_object, layer.getSubLayer(0), ['address', 'builtfar', 'landuse', 'numfloors'])
+         });
+
+ var num_floors = cartodb.createLayer(map_object, 'http://pluto.cartodb.com/api/v2/viz/0cd08e80-fee5-11e2-8888-ddc4604a078e/viz.json');
+          var l_num_floors = new L.LayerGroup();
+          num_floors.addTo(l_num_floors);
+
+// initial layers
 map_object.addLayer(l_nybb);
 map_object.addLayer(l_neigh_labels);
 
     var baseMaps = [
-                      { 
+                      {
                 groupName : "Basemaps",
                 expanded : false,
                 layers    : {
@@ -869,30 +884,30 @@ map_object.addLayer(l_neigh_labels);
                   "Acetate terrain" : Acetate_terrain,
                   "Black": black_wallpaper
                 }
-                      }  
+                      }
     ];
 
-    var overlays = [ 
+    var overlays = [
                 {
                 groupName : "Districts",
                 expanded : false,
-                layers    : { 
+                layers    : {
                             "Boroughs": l_nybb,
                             "Neighborhoods": l_neighborhoods,
-                            "<span class='my-layer-item-steelblue'>Community Districts</span>": l_nycd,
-                            "<span class='my-layer-item-steelblue'>City Council</span>": l_nycc,
-                            "<span class='my-layer-item-steelblue'>NY State Senate</span>": l_nyss,
-                            "<span class='my-layer-item-steelblue'>NY State Assembly</span>": l_nyad,
-                            "<span class='my-layer-item-steelblue'>US Congressional</span>": l_nycg,
-                            "<span class='my-layer-item-steelblue'>Police Precincts</span>": l_precincts,
-                            "<span class='my-layer-item-steelblue'>Zip Codes</span>": l_zipcode,
-                            "<span class='my-layer-item-steelblue'>Health Zones</span>": l_uhf_health
+                            "Community Districts": l_nycd,
+                            "City Council": l_nycc,
+                            "NY State Senate": l_nyss,
+                            "NY State Assembly": l_nyad,
+                            "US Congressional": l_nycg,
+                            "Police Precincts": l_precincts,
+                            "Zip Codes": l_zipcode,
+                            "Health Zones": l_uhf_health
                             }
                 },
                 {
-                groupName : "Outreach Locations",
+                groupName : "Facilities",
                 expanded : true,
-                layers    : {                   
+                layers    : {
                             "<img src='css/images/protest.svg'  height='14px' width='14px'/> Community Based Orgs": l_cbo,
                             "<img src='css/images/school.png'  height='14px' width='14px'/> Schools": l_schools,
                             "<img src='css/images/Hospital_Sign_32.png'  height='14px' width='14px'/> Hospitals & Clinics": l_health,
@@ -901,40 +916,40 @@ map_object.addLayer(l_neigh_labels);
                             "NYCHA developments": l_nycha,
                             "Subways": l_subways,
                             "Bike Lanes": l_dot_bike_2015,
-                            "Parks": l_dpr_parks 
+                            "Parks": l_dpr_parks
                             }
-                },  
-                {
+                },
+      {
                 groupName : "Demographics",
                 expanded : true,
-                layers    : {  
+                layers    : {
                            // "None": l_none,
-                            "% Hispanic": l_percent_hispanic_choro,
-                            "% White": l_percent_nhwhite_choro,
-                            "% Black": l_percent_nhblack_choro,       
-                            "% Asian": l_percent_nhasian_choro,
-       //                     }
-     // },                     
-     // {
-       //         groupName : "Income",
-         //       expanded : true,
-           //     layers    : {                              
-                            "Median HH Income": l_median_inc_choro,
-                            "Median Inc to Rent": l_median_inc_to_rent,
+                            "% Hispanic": l_percent_hispanic_12_choro_12,
+                            "% White": l_percent_nhwhite_choro_12,
+                            "% Black": l_percent_nhblack_choro_12,
+                            "% Asian": l_percent_nhasian_choro_12
+                            }
+      },
+      {
+                groupName : "Income",
+                expanded : true,
+                layers    : {
+                            "Median HH Income": l_median_inc_choro_12,
+                            "Median Inc to Rent": l_median_inc_to_rent_12
                           }
       },
-     {
+      {
                 groupName : "Foreign Born",
                 expanded : true,
-                layers    : {     
-                            "% Foreign Born": l_percent_foreignborn_choro,
-                            "Bangladeshi": l_bangladesh_gradu,
-                            "Pakistani": l_pakistani_gradu,
-                            "Indian": l_asianindia_gradu,
-                            "Arab": l_arab_gradu,
-                            "Turkish": l_turkish_gradu,
-                            "Senegalese": l_senegalese_gradu
-                              }      
+                layers    : {
+                            "% Foreign Born": l_percent_foreignborn_choro_12,
+                            "<img src='css/images/circle-16-bangladesh.png' height='10px' width='10px'/> Bangladeshi": l_bangladesh_gradu_12,
+                            "<img src='css/images/circle-16-pakistani.png' height='10px' width='10px'/> Pakistani": l_pakistani_gradu_12,
+                            "<img src='css/images/circle-16-asianindia.png' height='10px' width='10px'/> Indian": l_asianindia_gradu_12,
+                            "<img src='css/images/circle-16-arab.png' height='10px' width='10px'/> Arab": l_arab_gradu_12,
+                            "<img src='css/images/circle-16-turkish.png' height='10px' width='10px'/> Turkish": l_turkish_gradu_12,
+                            "<img src='css/images/circle-16-senegalese.png' height='10px' width='10px'/> Senegalese": l_senegalese_gradu_12
+                              }
       },
       {
                 groupName : "Labels",
@@ -944,14 +959,29 @@ map_object.addLayer(l_neigh_labels);
                             "Gray Basemap Labels" : labels_overlay,
                             "Stamen Toner Labels" : Stamen_TonerLabels
                             }
+      },
+      {
+                groupName : "Other",
+                expanded : true,
+                layers    : {
+                            "Likely Rent Stabilized"       : l_rent_stabl,
+                            "Building Heights"             : l_num_floors
+                            }
       }
     ];
+
+    // Make the "Demographics" group exclusive (use radio inputs)
+   // var options = { exclusiveGroups: ["Demographics"], groupCheckboxes: false, collapsed: false, autoZIndex: false };
+
+    // Use the custom grouped layer control, not "L.control.layers"
+   // var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options);
+   // map_object.addControl(layerControl);
 
       var options = {
        // container_width   : "",
        // group_maxHeight     : "",
-       // container_maxHeight : "", 
-        exclusive : false,  // true makes only one group able to be opened at a time! 
+       // container_maxHeight : "",
+        exclusive : false,  // true makes only one group able to be opened at a time!
         collapsed: false,
         autoZIndex: false
         //exclusive: ["Demographics"],   want to have radio check boxes here - may need to steal 'exclusive' code or make a basemap type
@@ -962,6 +992,12 @@ map_object.addLayer(l_neigh_labels);
         map_object.addControl(control);
 
             }
+  
+  
+
+
         </script>
+        
+
     </body>
 </html>
