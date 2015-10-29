@@ -33,123 +33,6 @@
                 margin: 0;
             }
 
-/* style and position the legend  */
-    #my-legend {
-        position: absolute;
-        width: auto;
-        padding: 10px;
-        float: left;
-        bottom: 30px;
-        right: 10px;
-      }
-
-
-      .my-legend {
-        background: rgba(255,255,255,1);
-        background: transparent url(css/images/bgnoise_lg.jpg) repeat top left;
-        border-radius: 5px;
-        border: 0;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-        font-family: 'Ubuntu-Regular', Arial, sans-serif;
-        font-size: 18px;
-        text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-        padding: 5px 5px 5px 5px;  /* top, right, bottom, left  */
-        max-height: 200px;
-        max-width: 320px;
-        overflow-x: hidden;
-        overflow-y: scroll;
-      }
-
-      .my-legend .legend-title {
-        font-family: 'Ubuntu-Regular', Arial, sans-serif;
-        /*margin-bottom: 5px;*/
-        padding-bottom: 5px;
-        font-weight: bold;
-        font-size: 155%;
-        }
-
-      .my-legend .layer-title {
-       font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
-        text-align: left;
-        padding-bottom: 1px;
-        padding-top: 9px;
-        font-weight: bold;
-        font-size: 105%;
-        }
-      .my-legend .legend-scale ul {
-        margin: 0;
-        padding: 0;
-        float: left;
-        list-style: none;
-        }
-      .my-legend .legend-scale ul li {  /* color span and text block area - the li*/
-        display: block;
-        padding-bottom: 5px;
-        float: left;
-        width: 40px;
-        font-size: 60%;
-        text-shadow: none;
-        list-style: none;
-        }
-
-    /* rotate legend labels*/
-      .rotate-text{
-        transform: rotate(-50deg);
-        transform-origin: left top 5;
-      }
-      .rotate-text{
-        float: left;
-        text-align: center;
-        padding: 18px 0px 8px 1px;
-        font-weight: 600;
-      }
-
-      .my-legend ul.legend-labels li span {
-        display: block;
-        float: left;
-        height: 20px;  /* height & width of the span blocks in pixels */
-        width: 40px;
-        }
-      .my-legend .legend-source {
-        font-size: 55%;
-        font-style: italic;
-        text-align: right;
-        color: #999;
-        clear: both;
-        margin-bottom: 3px;
-        }
-      .my-legend a {
-        color: #2b8cbe;
-        }
-
-
-        /* vertical legend style for DOE data*/
-          .my-legend .legend-scale-2 ul {
-              margin: 0;
-              margin-bottom: 0;
-              padding: 0;
-              float: left;
-              list-style: none;
-              }
-          .my-legend .legend-scale-2 ul li {
-              font-size: 70%;
-              list-style: none;
-              text-shadow: none;
-              margin-left: 0px;
-              margin-right: 1px;
-              line-height: 15px;
-              margin-bottom: 1px;
-              }
-          .my-legend ul.legend-labels-2 li span {
-              display: block;
-              float: left;
-              height: 15px;
-              width: 18px;
-              margin-right: 2px;
-              margin-left: 2px;
-              border: 0px solid #fff;
-              }
-
 /* change the appearance of the leaflet zoom control, copied from http://wcfcourier.com/app/special/fatalcrashes/css/styles.css */
       .leaflet-control-zoom a {
           background-color: #C5E1EB;
@@ -204,61 +87,6 @@
    </div>
 
 
-<!--   MAPBOX-style LEGEND  - framwork from SCHLANG map -->
-
-<div id='my-legend' class='my-legend'>
-
-<!-- <div class='legend-title'></div>
-<hr style="background:#000; border:0; height:2px" /> -->
-<div class='layer-title'>Race, Ethnicity & Foreign Born Layers</div>
-<div class='legend-scale'>
-  <ul class='legend-labels'>
-    <li><span style='background:#FFFFB2;'></span><span class="rotate-text">10-19%</span></li>
-    <li><span style='background:#FED976;'></span><span class="rotate-text">20-34%</span></li>
-    <li><span style='background:#FEB24C;'></span><span class="rotate-text">35-49%</span></li>
-    <li><span style='background:#FD8D3C;'></span><span class="rotate-text">50-64%</span></li>
-    <li><span style='background:#FC4E2A;'></span><span class="rotate-text">65-79%</span></li>
-    <li><span style='background:#E31A1C;'></span><span class="rotate-text">80-89%</span></li>
-    <li><span style='background:#B10026;'></span><span class="rotate-text">90+ %</span></li>
-  </ul>
-
-</div>
-<div class='legend-source'>Source: 2012 <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a></div>
-
-<hr style="background:#c0c0c0; border:0; height:2px" />
-
-  <div class='layer-title'>Median HH Income</div>
-  <div class='legend-scale'>
-    <ul class='legend-labels'>
-      <li><span style='background:#d73027;'></span><span class="rotate-text">$30,000</li>
-      <li><span style='background:#f79272;'></span><span class="rotate-text">$39,000</li>
-      <li><span style='background:#fed6b0;'></span><span class="rotate-text">$48,000</li>
-      <li><span style='background:#fff2cc;'></span><span class="rotate-text">$57,000</li>
-      <li><span style='background:#d2ecb4;'></span><span class="rotate-text">$67,000</li>
-      <li><span style='background:#8cce8a;'></span><span class="rotate-text">$84,000</li>
-      <li><span style='background:#1a9850;'></span><span class="rotate-text">$244,000</li>
-    </ul>
-  </div>
-<div class='legend-source'>Source: 2012 <a href="https://www.census.gov/programs-surveys/acs/">American Community Survey</a></div>
-
-<hr style="background:#c0c0c0; border:0; height:2px" />
-
-  <div class='layer-title'>Median Income to Rent</div>
-  <div class='legend-scale'>
-    <ul class='legend-labels'>
-      <li><span style='background:#0080ff;'></span><span class="rotate-text"> 22-25% </li>
-     <li><span style='background:#40a0ff;'></span><span class="rotate-text"> 26-31% </li>
-      <li><span style='background:#7fbfff;'></span><span class="rotate-text"> 31-35% </li>
-      <li><span style='background:#fff2cc;'></span><span class="rotate-text"> 36-40% </li>
-      <li><span style='background:#ffa6a6;'></span><span class="rotate-text"> 40-44% </li>
-      <li><span style='background:#ff7a7a;'></span><span class="rotate-text"> 45-50% </li>
-      <li><span style='background:#ff4d4d;'></span><span class="rotate-text"> 50+ % </li>
-    </ul>
-  </div>
-     
-
-
-  </div>
 <!-- load infowindow template -->
 <script type="infowindow/html" id="infowindow_template">
       <span> custom </span>
@@ -705,7 +533,7 @@ var median_inc_to_rent = cartodb.createLayer(map_object, {
                       type: 'cartodb',
                       sublayers: [{
                         sql: "SELECT cartodb_id, medrenttoh, medianhhin, the_geom_webmercator FROM tract12 WHERE Totalpop > 250",
-                        cartocss: "#layer{polygon-fill: #0080ff;polygon-opacity: 0.8;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#layer [ medrenttoh <= 50] {polygon-fill: #ff4d4d;}#layer [ medrenttoh <= 44.6] {polygon-fill: #ff7a7a;}#layer [ medrenttoh <= 40.1] {polygon-fill: #ffa6a6;}#layer [ medrenttoh <= 35.6] {polygon-fill: #fff2cc;}#layer [ medrenttoh <= 31.1] {polygon-fill: #7fbfff;}#layer [ medrenttoh <= 26.6] {polygon-fill: #40a0ff;}#layer [ medrenttoh <= 22.1] {polygon-fill: #0080ff;}",
+                        cartocss: "#layer{polygon-fill: #0080ff; polygon-opacity: 0.8; line-color: #FFF; line-width: 0.5; line-opacity: 1;} #layer [ medrenttoh <= 50] {polygon-fill: #ff4d4d;}#layer [ medrenttoh <= 44.6] {polygon-fill: #ff7a7a;}#layer [ medrenttoh <= 40.1] {polygon-fill: #ffa6a6;} #layer [ medrenttoh <= 35.6] {polygon-fill: #fff2cc;}#layer [ medrenttoh <= 31.1] {polygon-fill: #7fbfff;}#layer [ medrenttoh <= 26.6] {polygon-fill: #40a0ff;}#layer [ medrenttoh <= 22.1] {polygon-fill: #0080ff;}",
                         interactivity: "cartodb_id"}]
                     });
     var l_median_inc_to_rent_12 = new L.LayerGroup();
@@ -719,7 +547,7 @@ var median_inc_choro = cartodb.createLayer(map_object, {
                       type: 'cartodb',
                       sublayers: [{
                         sql: "SELECT cartodb_id, the_geom_webmercator, medianhhin FROM tract12 WHERE Totalpop > 250",
-                        cartocss: "#layer{ polygon-fill: #d73027;   polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ medianhhin <= 243622] { polygon-fill: #1a9850; } #layer [ medianhhin <= 84240] { polygon-fill: #8cce8a; } #layer [ medianhhin <= 67394] { polygon-fill: #d2ecb4; } #layer [ medianhhin <= 57176] { polygon-fill: #fff2cc; } #layer [ medianhhin <= 48159] { polygon-fill: #fed6b0; } #layer [ medianhhin <= 39538] { polygon-fill: #f79272; } #layer [ medianhhin <= 30106] { polygon-fill: #d73027; }",
+                        cartocss: "#layer{ polygon-fill: #d73027;   polygon-opacity: 0.8;   line-color: #FFF;   line-width: 0.1;   line-opacity: 1; } #layer [ medianhhin <= 243622] { polygon-fill: #1a9850; } #layer [ medianhhin <= 84240] { polygon-fill: #8cce8a; } #layer [ medianhhin <= 67394] { polygon-fill: #d2ecb4; } #layer [ medianhhin <= 57176] { polygon-fill: #fff2cc; } #layer [ medianhhin <= 48159] { polygon-fill: #fed6b0; } #layer [ medianhhin <= 39538] { polygon-fill: #f79272; } #layer [ medianhhin <= 30106] { polygon-fill: #d73027; } #layer [ medianhhin <= 1000] { polygon-opacity: 0;} ",
                       interactivity: "cartodb_id"}]
                     });
     var l_median_inc_choro_12  = new L.LayerGroup();
@@ -922,28 +750,28 @@ map_object.addLayer(l_neigh_labels);
                 },
       {
                 groupName : "Demographics",
-                expanded : true,
+                expanded : false,
                 layers    : {
                            // "None": l_none,
-                            "% Hispanic": l_percent_hispanic_12_choro_12,
-                            "% White": l_percent_nhwhite_choro_12,
-                            "% Black": l_percent_nhblack_choro_12,
-                            "% Asian": l_percent_nhasian_choro_12
+                            "% Hispanic <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_hispanic_12_choro_12,
+                            "% White <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_nhwhite_choro_12,
+                            "% Black <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_nhblack_choro_12,
+                            "% Asian <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_nhasian_choro_12
                             }
       },
       {
                 groupName : "Income",
-                expanded : true,
+                expanded : false,
                 layers    : {
-                            "Median HH Income": l_median_inc_choro_12,
-                            "Median Inc to Rent": l_median_inc_to_rent_12
+                            "Median HH Income <img src='css/images/choro_RdYlGr_7_mini_legend.svg' align='right' height='31px' width='217px' hr/>": l_median_inc_choro_12,
+                            "Median Inc to Rent <img src='css/images/choro_BuYlRe_7_mini_legend.svg' align='right' height='31px' width='217px' hr/>": l_median_inc_to_rent_12
                           }
       },
       {
                 groupName : "Foreign Born",
                 expanded : true,
                 layers    : {
-                            "<img src='css/images/yel_ora_red3_choro_icon.png'  height='15px' width='32px'/> % Foreign Born": l_percent_foreignborn_choro_12,
+                            "% Foreign Born <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' />": l_percent_foreignborn_choro_12,
                             "<img src='css/images/circle-16-bangladesh.png' height='10px' width='10px'/> Bangladeshi": l_bangladesh_gradu_12,
                             "<img src='css/images/circle-16-pakistani.png' height='10px' width='10px'/> Pakistani": l_pakistani_gradu_12,
                             "<img src='css/images/circle-16-asianindia.png' height='10px' width='10px'/> Indian": l_asianindia_gradu_12,
@@ -963,7 +791,7 @@ map_object.addLayer(l_neigh_labels);
       },
       {
                 groupName : "Other",
-                expanded : true,
+                expanded : false,
                 layers    : {
                             "Likely Rent Stabilized"       : l_rent_stabl,
                             "Building Heights"             : l_num_floors
