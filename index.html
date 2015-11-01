@@ -4,14 +4,14 @@
         <title>
 
             NYC Multilayer Web Map Viz | for DEMO purposes 
-            <!-- This visualization/map application is created for portfolio & demo purposes. Lots of borrowed data & open source code. Thanks!  -->
-
+           
         </title>
 
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-     
+      <!-- This visualization/map application is created for portfolio & demo purposes. Lots of borrowed data & open source code. -->
+
 
        <!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,900' rel='stylesheet' type='text/css'> -->
             <!-- <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7/leaflet.css"/> -->
@@ -79,7 +79,7 @@
   </div>
 
     <div id="instructor" class="box-shadow">
-      <h1>CAU Outreach Map</h1>
+      <h1>Layer Order:</h1>
 
       <div id="instructor-text-intro">
         <p>Layers are drawn as you select them, newest on top of oldest. To change the order, simply toggle a layer off and then on again to make it appear on top of others.</p>
@@ -123,14 +123,14 @@ $('#hide_show_instructor').click(function() {
     $('.hide_instructor').hide();
     $('.show_instructor').show();
     $('#instructor').slideUp();
-    $('#hide_show_instructor').removeClass('box-shadow');
+   // $('#hide_show_instructor').removeClass('box-shadow');
     $('.hide_show_instructor').show();
     isHideButton = false;
   } else {
     $('.show_instructor').hide();
     $('.hide_instructor').show();
     $('#instructor').slideDown();
-    $('#hide_show_instructor').addClass('box-shadow');
+   // $('#hide_show_instructor').addClass('box-shadow');
     $('.hide_show_instructor').show();
     isHideButton = true;
   }
@@ -753,31 +753,31 @@ map_object.addLayer(l_neigh_labels);
                 expanded : false,
                 layers    : {
                            // "None": l_none,
-                            "% Hispanic <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_hispanic_12_choro_12,
-                            "% White <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_nhwhite_choro_12,
-                            "% Black <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_nhblack_choro_12,
-                            "% Asian <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' hr/>": l_percent_nhasian_choro_12
+                            "% Hispanic <img src='css/images/mini_legend_choro_YOR_7.svg' align='right' height='38px' width='217px' br/>": l_percent_hispanic_12_choro_12,
+                            "% White <img src='css/images/mini_legend_choro_YOR_7.svg' align='right' height='38px' width='217px' br/>": l_percent_nhwhite_choro_12,
+                            "% Black <img src='css/images/mini_legend_choro_YOR_7.svg' align='right' height='38px' width='217px' br/>": l_percent_nhblack_choro_12,
+                            "% Asian <img src='css/images/mini_legend_choro_YOR_7.svg' align='right' height='38px' width='217px' br/>": l_percent_nhasian_choro_12
                             }
       },
       {
                 groupName : "Income",
                 expanded : true,
                 layers    : {
-                            "Median HH Income <img src='css/images/choro_RdYlGr_7_mini_legend.svg' align='right' height='31px' width='217px' hr/>": l_median_inc_choro_12,
-                            "Median Inc to Rent <img src='css/images/choro_BuYlRe_7_mini_legend.svg' align='right' height='31px' width='217px' hr/>": l_median_inc_to_rent_12
+                            "Median HH Income <img src='css/images/mini_legend_medhhinc.svg' align='right' height='38px' width='217px' br/>": l_median_inc_choro_12,
+                            "Median Inc to Rent <img src='css/images/mini_legend_choro_BYR_7.svg' align='right' height='38px' width='217px' br/>": l_median_inc_to_rent_12
                           }
       },
       {
                 groupName : "Foreign Born",
                 expanded : true,
                 layers    : {
-                            "% Foreign Born <img src='css/images/choro_YeOrRe_7_mini_legend_final.svg' align='right' height='31px' width='217px' />": l_percent_foreignborn_choro_12,
-                            "<img src='css/images/circle-16-bangladesh.png' height='10px' width='10px'/> Bangladeshi": l_bangladesh_gradu_12,
-                            "<img src='css/images/circle-16-pakistani.png' height='10px' width='10px'/> Pakistani": l_pakistani_gradu_12,
-                            "<img src='css/images/circle-16-asianindia.png' height='10px' width='10px'/> Indian": l_asianindia_gradu_12,
-                            "<img src='css/images/circle-16-arab.png' height='10px' width='10px'/> Arab": l_arab_gradu_12,
-                            "<img src='css/images/circle-16-turkish.png' height='10px' width='10px'/> Turkish": l_turkish_gradu_12,
-                            "<img src='css/images/circle-16-senegalese.png' height='10px' width='10px'/> Senegalese": l_senegalese_gradu_12
+                            "% Foreign Born <img src='css/images/mini_legend_choro_YOR_7.svg' align='right' height='38px' width='217px' br/>": l_percent_foreignborn_choro_12,
+                            "Bangladeshi <img src='css/images/mini-legend-bangladeshi.svg' align='right' height='61px' width='220px' br/>" : l_bangladesh_gradu_12,
+                            "Pakistani <img src='css/images/mini-legend-pakistani.svg' align='right' height='61px' width='220px' br/>": l_pakistani_gradu_12,
+                            "Indian <img src='css/images/mini-legend-indian.svg' align='right' height='61px' width='220px' br/>": l_asianindia_gradu_12,
+                            "Arab  <img src='css/images/mini-legend-arab.svg' align='right' height='61px' width='220px' br/>": l_arab_gradu_12,
+                            "Turkish <img src='css/images/mini-legend-turkish.svg' align='right' height='61px' width='220px' br/>": l_turkish_gradu_12,
+                            "Senegalese <img src='css/images/mini-legend-senegalese.svg' align='right' height='61px' width='220px' br/>" : l_senegalese_gradu_12
                               }
       },
       {
