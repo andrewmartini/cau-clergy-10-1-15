@@ -166,13 +166,15 @@ $('#hide_show_instructor').click(function() {
                 subdomains: '1234'
               });
 
+
                 // Instantiate new map object, place it in 'map' element
               var map_object = new L.Map('map', {
                     center: [40.7033,-73.9796], // New York, NY
                     zoomControl: false,   // remove default zoomControl position to create a custom one
                     zoom: 11,
-                    maxZoom: 16,
+                    maxZoom: 17,
                     minZoom: 10,
+                    maxBounds : L.latLngBounds([40.4,-74.6],[41.0,-73.6]),   // general bounds to keep focus on NYC-area
                     layers:[light_nolabels]    // initial basemap
                     //scrollWheelZoom: false   // to keep from zooming accidentally
               });
